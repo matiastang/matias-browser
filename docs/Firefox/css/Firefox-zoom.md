@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-04-14 14:38:37
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-04-14 14:46:01
+ * @LastEditTime: 2021-04-27 10:41:46
  * @Description: Firefox-zoom
 -->
 # Firefox-zoom
@@ -41,7 +41,7 @@ supportCss3(style) {
 }
 ```
 **注意**：如果支持的话, 会输出 ""，如果不支持的话, 会输出 undefined，新版本的浏览器不用判断前缀了, 老版本的浏览器还是需要判断前缀。
-当浏览器不支持`zoom`时，可以使用`transform: scale(zoom)`代替，但需要注意的是，`transform`不会改变实际的大小，而`zoom`会改变组件的大小为缩放之后的。所以需要特殊处理实际的大小，可以使用`margin`为负数来达到效果。如下：
+当浏览器不支持`zoom`时，可以使用`transform: scale(zoom)`代替，但需要注意的是，`transform`不会改变实际的大小(`不会引起重排`)，而`zoom`会改变组件的大小为缩放之后的(`会引起重排`)。所以需要特殊处理实际的大小，可以使用`margin`为负数来达到效果。如下：
 ```jsx
 /**
  * 获取显示尺寸及缩放
